@@ -1,0 +1,47 @@
+{
+  "_from": "skilla",
+  "_id": "skilla@1.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-TPHrIkakaE54s4vkXWbYkO6Mwe8KlMiPl8db1ZLNa9Oc/ynrMDOYii2ke6NBLoY0O1/6lm9/TpCGopFNQuGtug==",
+  "_location": "/skilla",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "skilla",
+    "name": "skilla",
+    "escapedName": "skilla",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/skilla/-/skilla-1.0.1.tgz",
+  "_shasum": "4532d43f3d0c3c51050cef39759d2ec9bd4dc4f2",
+  "_spec": "skilla",
+  "_where": "/Users/dsamarth/alexa-skills-kit-nodejs/SkillB",
+  "author": {
+    "name": "Samarth Kanakkumar Dave"
+  },
+  "bugs": {
+    "url": "https://github.com/SAMARTH2222/SkillsTest/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "trial pacakge. Will be deleted.",
+  "homepage": "https://github.com/SAMARTH2222/SkillsTest#readme",
+  "license": "ISC",
+  "main": "index.js",
+  "name": "skilla",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SAMARTH2222/SkillsTest.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.1"
+}

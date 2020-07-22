@@ -1,0 +1,500 @@
+{
+    "ActionAndEntity": {
+      "Types": {
+        "range": {
+          "extends": "AMAZON.Literal"
+        },
+        "temperament": {
+          "extends": "AMAZON.Literal"
+        },
+        "energy": {
+          "extends": "AMAZON.Literal"
+        },
+        "recommendationResult": {
+          "properties": {
+            "name": "name",
+            "imageUrl": "imageUrl",
+            "description": "description",
+            "range": "range",
+            "energyLevel": "energy",
+            "temperament": "temperament",
+            "shedding": "shedding"
+          }
+        },
+        "name": {
+          "extends": "AMAZON.Literal"
+        },
+        "imageUrl": {
+          "extends": "AMAZON.Literal"
+        },
+        "description": {
+          "extends": "AMAZON.Literal"
+        },
+        "shedding": {
+          "extends": "AMAZON.Literal"
+        },
+        "pictureResult": {
+          "properties": {
+            "name": "name",
+            "imageUrl": "imageUrl"
+          }
+        },
+        "imageCount": {
+          "extends": "AMAZON.NUMBER"
+        }
+      },
+      "APIs": {
+        "GetRecommendation": {
+          "args": {
+            "range": {
+              "type": "range"
+            },
+            "temperament": {
+              "type": "temperament"
+            },
+            "energy": {
+              "type": "energy"
+            }
+          },
+          "nlg": [
+            "notify_api_response_GetRecommendation"
+          ],
+          "returns": "recommendationResult"
+        },
+        "GetPicture": {
+          "args": {
+            "recommendationResult": {
+              "type": "recommendationResult"
+            }
+          },
+          "nlg": [
+            "notify_api_response_GetPicture"
+          ],
+          "returns": "pictureResult"
+        }
+      }
+    },
+    "Language": {
+      "SpeechActs": {}
+    },
+    "UserUtteranceGroup": {
+      "find_pet_range_temperament_energy": {
+        "args": {
+          "range": "range",
+          "temperament": "temperament",
+          "energy": "energy"
+        },
+        "formatters": [
+          "I want a ${range} ${temperament} dog with ${energy} energy levels.",
+          "I want a ${range} ${energy} energy ${temperament} dog",
+          "I want a ${energy} energy ${temperament} dog which is ${range}"
+        ],
+        "dialogAct": "invoke",
+        "api": "GetRecommendation"
+      },
+      "find_pet_range_temperament": {
+        "args": {
+          "range": "range",
+          "temperament": "temperament"
+        },
+        "formatters": [
+          "I want a ${range} ${temperament} dog"
+        ],
+        "dialogAct": "inform"
+      },
+      "find_pet_energy": {
+        "args": {
+          "energy": "energy"
+        },
+        "formatters": [
+          "${energy}",
+          "i want ${energy} dog instead",
+          "i want ${energy} dog ",
+          "${energy} energy",
+          "i want a ${energy} dog"
+        ],
+        "dialogAct": "invoke",
+        "api": "GetRecommendation"
+      },
+      "find_pet_range_energy": {
+        "args": {
+          "range": "range",
+          "energy": "energy"
+        },
+        "formatters": [
+          "I want a ${range} dog with ${energy} energy.",
+          "I want a ${energy} energy ${range} dog"
+        ],
+        "dialogAct": "invoke",
+        "api": "GetRecommendation"
+      },
+      "find_pet_temperament": {
+        "args": {
+          "temperament": "temperament"
+        },
+        "formatters": [
+          "${temperament}",
+          "i want ${temperament} dog",
+          "i want ${temperament} dog instead",
+          "${temperament} dog",
+          "a ${temperament} dog"
+        ],
+        "dialogAct": "invoke",
+        "api": "GetRecommendation"
+      },
+      "find_pet_temperament_energy": {
+        "args": {
+          "temperament": "temperament",
+          "energy": "energy"
+        },
+        "formatters": [
+          "i want ${temperament} ${energy} energy dog",
+          " ${temperament} ${energy} energy",
+          "i want a ${temperament} dog with ${energy} energy"
+        ],
+        "dialogAct": "invoke",
+        "api": "GetRecommendation"
+      },
+      "find_pet_range": {
+        "args": {
+          "range": "range"
+        },
+        "formatters": [
+          "${range}",
+          "i want a ${range} dog",
+          "${range} dog",
+          "a ${range} dog"
+        ],
+        "dialogAct": "invoke",
+        "api": "GetRecommendation"
+      },
+      "show_pictures": {
+        "args": {},
+        "formatters": [
+          "sure",
+          "show me other picture",
+          "i want another picture",
+          "yes",
+          "show me another picture",
+          "next",
+          "another",
+          "another pic",
+          "next pic",
+          "more pic",
+          "something else",
+          "more",
+          "more pics",
+          "show something else",
+          "one more"
+        ],
+        "dialogAct": "invoke",
+        "api": "GetPicture"
+      },
+      "no_more_pictures": {
+        "args": {},
+        "formatters": [
+          "nope",
+          "i am good",
+          "no thank you",
+          "no more pictures",
+          "stop showing pictures",
+          "i do not want to see pictures"
+        ],
+        "dialogAct": "deny",
+        "api": "GetPicture"
+      }
+    },
+    "GoldenConversations": "{site: amzn1.ask.skill.f8309e2b-0d4c-4fc8-9146-a4f0d60dbf40}\n\n{dialogName: dialog0}\n{start}\nU: I want a [large|range -\u003e range0] [family|temperament -\u003e temperament0] dog\nU: { userNlg: find_pet_range_temperament(range\u003d$range0, temperament\u003d$temperament0) }\nA: { nlg: request_energy_energy() }\nA: Do you prefer low, medium, or high energy dogs?\nU: [low|energy -\u003e energy0]\nU: { userNlg: find_pet_energy(energy\u003d$energy0) }\nA: { call: GetRecommendation(temperament\u003d$temperament0, energy\u003d$energy0, range\u003d$range0) -\u003e recommendationResult0 }\nA: { nlg: notify_api_response_GetRecommendation(recommendationResult\u003d$recommendationResult0) }\nA: OK! In that case I recommend a chihuahua. Would you like to see more pictures?\nU: Show me more pictures.\nU: { userNlg: show_pictures() }\nA: { call: GetPicture(recommendationResult\u003d$recommendationResult0) -\u003e pictureResult0 }\nA: { nlg: notify_api_response_GetPicture(pictureResult\u003d$pictureResult0) }\nA: Here\u0027s another picture!\n{end}\n\n{dialogName: dialog1}\n{start}\nU: I want a [large|range -\u003e range0] dog with [high|energy -\u003e energy0] energy.\nU: { userNlg: find_pet_range_energy(range\u003d$range0, energy\u003d$energy0) }\nA: { nlg: request_temperament_temperament() }\nA: Do you want a dog that\u0027s good with family or better at guarding?\nU: [family|temperament -\u003e temperament0]\nU: { userNlg: find_pet_temperament(temperament\u003d$temperament0) }\nA: { call: GetRecommendation(temperament\u003d$temperament0, energy\u003d$energy0, range\u003d$range0) -\u003e recommendationResult0 }\nA: { nlg: notify_api_response_GetRecommendation(recommendationResult\u003d$recommendationResult0) }\nA: OK! In that case I recommend a chihuahua. Would you like to see more pictures?\n{end}\n\n{dialogName: dialog2}\n{start}\nU: I want a [family|temperament -\u003e temperament0] dog with [high|energy -\u003e energy0] energy.\nU: { userNlg: find_pet_temperament_energy(temperament\u003d$temperament0, energy\u003d$energy0) }\nA: { nlg: request_range_range() }\nA: There are dogs which are tiny, small, medium or large. Which one do you prefer?\nU: [large|range -\u003e range0]\nU: { userNlg: find_pet_range(range\u003d$range0) }\nA: { call: GetRecommendation(temperament\u003d$temperament0, energy\u003d$energy0, range\u003d$range0) -\u003e recommendationResult0 }\nA: { nlg: notify_api_response_GetRecommendation(recommendationResult\u003d$recommendationResult0) }\nA: OK! In that case I recommend a chihuahua. Would you like to see more pictures?\n{end}\n\n{dialogName: dialog3}\n{start}\nU: I want a [large|range -\u003e range0] [high|energy -\u003e energy0] energy [guard|temperament -\u003e temperament0] dog\nU: { userNlg: find_pet_range_temperament_energy(range\u003d$range0, temperament\u003d$temperament0, energy\u003d$energy0) }\nA: { call: GetRecommendation(range\u003d$range0, temperament\u003d$temperament0, energy\u003d$energy0) -\u003e recommendationResult0 }\nA: { nlg: notify_api_response_GetRecommendation(recommendationResult\u003d$recommendationResult0) }\nA: I recommend a chihuahua. Would you like to see more pictures?\nU: Yes\nU: { userNlg: show_pictures() }\nA: { call: GetPicture(recommendationResult\u003d$recommendationResult0) -\u003e pictureResult0 }\nA: { nlg: notify_api_response_GetPicture(pictureResult\u003d$pictureResult0) }\nA: Here\u0027s another picture!\n{end}\n\n{dialogName: dialog4}\n{start}\nU: I want a [large|range -\u003e range0] dog\nU: { userNlg: find_pet_range(range\u003d$range0) }\nA: { nlg: request_energy_energy() }\nA: Do you prefer low, medium, or high energy dogs?\nU: [low|energy -\u003e energy0]\nU: { userNlg: find_pet_energy(energy\u003d$energy0) }\nA: { nlg: request_temperament_temperament() }\nA: Do you prefer a family dog or a guard dog?\nU: [guard|temperament -\u003e temperament0]\nU: { userNlg: find_pet_temperament(temperament\u003d$temperament0) }\nA: { call: GetRecommendation(temperament\u003d$temperament0, energy\u003d$energy0, range\u003d$range0) -\u003e recommendationResult0 }\nA: { nlg: notify_api_response_GetRecommendation(recommendationResult\u003d$recommendationResult0) }\nA: OK! In that case I recommend a chihuahua. Would you like to see more pictures?\n{end}\n\n{dialogName: dialog5}\n{start}\nU: I want a [large|range -\u003e range0] [high|energy -\u003e energy0] energy [guard|temperament -\u003e temperament0] dog\nU: { userNlg: find_pet_range_temperament_energy(range\u003d$range0, temperament\u003d$temperament0, energy\u003d$energy0) }\nA: { call: GetRecommendation(range\u003d$range0, temperament\u003d$temperament0, energy\u003d$energy0) -\u003e recommendationResult0 }\nA: { nlg: notify_api_response_GetRecommendation(recommendationResult\u003d$recommendationResult0) }\nA: I recommend a chihuahua. Would you like to see more pictures?\nU: No\nU: { userNlg: no_more_pictures() }\nA: { nlg: no_problem_offer() }\nA: \n{end}\n\n{dialogName: dialog6}\n{start}\nU: I want a [giant|range -\u003e range0] [low|energy -\u003e energy0] energy [guard|temperament -\u003e temperament0] dog\nU: { userNlg: find_pet_range_temperament_energy(range\u003d$range0, temperament\u003d$temperament0, energy\u003d$energy0) }\nA: { call: GetRecommendation(range\u003d$range0, temperament\u003d$temperament0, energy\u003d$energy0) -\u003e recommendationResult0 }\nA: { nlg: no_recommendation(recommendationResult\u003d$recommendationResult0) }\nA: There are no recommendations for this criteria.\n{end}\n",
+    "RawDialogs": "",
+    "UserNlg": {
+      "opening_sentences": {
+        "GetRecommendation": {
+          "extends": "request",
+          "templates": {
+            "t0": {
+              "unmodified_args": {},
+              "updated_args": {
+                "temperament": "temperament",
+                "range": "range"
+              },
+              "nodes": [
+                {
+                  "api": "GetRecommendation",
+                  "parents": {
+                    "temperament": "temperament",
+                    "range": "range"
+                  }
+                }
+              ],
+              "sentence": [
+                "I want a ${range} ${temperament} dog"
+              ]
+            },
+            "t1": {
+              "unmodified_args": {},
+              "updated_args": {
+                "range": "range"
+              },
+              "nodes": [
+                {
+                  "api": "GetRecommendation",
+                  "parents": {
+                    "range": "range"
+                  }
+                }
+              ],
+              "sentence": [
+                "I want a ${range} dog"
+              ]
+            },
+            "t2": {
+              "unmodified_args": {},
+              "updated_args": {
+                "temperament": "temperament"
+              },
+              "nodes": [
+                {
+                  "api": "GetRecommendation",
+                  "parents": {
+                    "temperament": "temperament"
+                  }
+                }
+              ],
+              "sentence": [
+                "I want a ${temperament} dog"
+              ]
+            }
+          }
+        }
+      },
+      "affirm_deny": {},
+      "inform": {
+        "inform_energy_energy": {
+          "args": {
+            "energy": "energy"
+          },
+          "formatters": [
+            " ${energy}"
+          ]
+        }
+      },
+      "maxNumTemplates": 1
+    },
+    "Catalog": {
+      "range": [
+        {
+          "content": "tiny"
+        },
+        {
+          "content": "small"
+        },
+        {
+          "content": "medium"
+        },
+        {
+          "content": "huge"
+        },
+        {
+          "content": "gigantic"
+        },
+        {
+          "content": "big"
+        },
+        {
+          "content": "super"
+        },
+        {
+          "content": "large"
+        }
+      ],
+      "temperament": [
+        {
+          "content": "family"
+        },
+        {
+          "content": "sweet"
+        },
+        {
+          "content": "nice"
+        },
+        {
+          "content": "friendly"
+        },
+        {
+          "content": "loving"
+        },
+        {
+          "content": "jerk"
+        },
+        {
+          "content": "angry"
+        },
+        {
+          "content": "mean"
+        },
+        {
+          "content": "mad"
+        },
+        {
+          "content": "aggressive"
+        },
+        {
+          "content": "guard"
+        }
+      ],
+      "energy": [
+        {
+          "content": "high"
+        },
+        {
+          "content": "chill"
+        },
+        {
+          "content": "calm"
+        },
+        {
+          "content": "lazy"
+        },
+        {
+          "content": "excited"
+        },
+        {
+          "content": "hyper"
+        },
+        {
+          "content": "medium"
+        },
+        {
+          "content": "low"
+        }
+      ]
+    },
+    "SimulatorConfig": {},
+    "annotationJSON": {
+      "dialogs": [
+        {
+          "sessionId": "",
+          "id": "f697eaf1-4017-489c-a445-0255597243f9",
+          "turns": [
+            {
+              "id": "9a96d672-3936-4130-ba67-c335a2c090f7",
+              "alexaLine": {
+                "text": "Tiny, small, medium or large dog?",
+                "annotations": [
+                  {
+                    "id": "57eac08c-a7ec-4255-8496-f31393ebb6ca",
+                    "name": "request_range_range",
+                    "args": [],
+                    "entities": [],
+                    "type": "NLG_CALL"
+                  }
+                ],
+                "dialogActs": []
+              },
+              "userLine": {
+                "text": "I want a low energy guard dog",
+                "entities": [
+                  {
+                    "id": "446caf63-7045-4d69-a9d6-c513738be7ce",
+                    "start": 3,
+                    "end": 4,
+                    "color": "#FFCFCF",
+                    "tokens": [
+                      "low"
+                    ],
+                    "type": "energy",
+                    "variable": "energy0"
+                  },
+                  {
+                    "id": "efa6ff2a-1c05-4968-9e52-ddb5cb93d02d",
+                    "start": 5,
+                    "end": 6,
+                    "color": "#FFFDCF",
+                    "tokens": [
+                      "guard"
+                    ],
+                    "type": "temperament",
+                    "variable": "temperament0"
+                  }
+                ],
+                "dialogActs": [],
+                "variants": [],
+                "annotations": [
+                  {
+                    "id": "95379951-a95d-4bb8-9f6c-0f0e46177269",
+                    "name": "find_pet_temperament_energy",
+                    "args": [
+                      {
+                        "name": "temperament",
+                        "expression": "$temperament0"
+                      },
+                      {
+                        "name": "energy",
+                        "expression": "$energy0"
+                      }
+                    ],
+                    "entities": [],
+                    "type": "USER_NLG_CALL"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "56f24936-56e6-4e80-9790-16dba30eb0eb",
+              "alexaLine": {
+                "text": "I recommend a chihuahua",
+                "annotations": [],
+                "dialogActs": []
+              },
+              "userLine": {
+                "text": "medium",
+                "entities": [
+                  {
+                    "id": "e109e399-9441-4567-8079-b270161236cf",
+                    "start": 0,
+                    "end": 1,
+                    "color": "#CFECFF",
+                    "tokens": [
+                      "medium"
+                    ],
+                    "type": "range",
+                    "variable": "range0"
+                  }
+                ],
+                "dialogActs": [],
+                "variants": [],
+                "annotations": []
+              }
+            }
+          ],
+          "variableTable": {
+            "variables": [
+              {
+                "name": "energy0",
+                "type": "energy"
+              },
+              {
+                "name": "temperament0",
+                "type": "temperament"
+              },
+              {
+                "name": "range0",
+                "type": "range"
+              }
+            ]
+          }
+        }
+      ],
+      "pagination": {
+        "currentDialogIndex": 0,
+        "currentTurnIndex": 1,
+        "isLast": true
+      },
+      "isSecondPass": {
+        "isSecondPassVal": false
+      },
+      "daSysRec": [],
+      "oldDialogCount": 0
+    },
+    "converted": false
+  }
