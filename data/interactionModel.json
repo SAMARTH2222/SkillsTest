@@ -1,0 +1,190 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "dog finder copy",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "what else can I say",
+            "what can I ask",
+            "more help",
+            "help me",
+            "help"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "I am done",
+            "I am good for now",
+            "I have other things to do",
+            "I will do something better",
+            "I will do something else",
+            "I will use my time in a better way",
+            "I will use my time in something else",
+            "I will utilize my time in some other way",
+            "I don\u0027t need you anymore",
+            "I don\u0027t need you",
+            "I don\u0027t want anything",
+            "I don\u0027t want it",
+            "I don\u0027t want to continue thanks",
+            "I don\u0027t want you",
+            "done with you",
+            "it\u0027s enough",
+            "it\u0027s over",
+            "leave me",
+            "leave now",
+            "no I don\u0027t need anything now",
+            "no more information needed",
+            "no more information required",
+            "no need for anything",
+            "please excuse me",
+            "please pardon me",
+            "please don\u0027t irritate me",
+            "that\u0027s enough",
+            "what\u0027s happening here",
+            "stop",
+            "I am finished",
+            "I\u0027m done",
+            "I\u0027m finished",
+            "be quiet",
+            "bye alexa",
+            "bye alexis",
+            "bye bye",
+            "close app",
+            "close skill",
+            "cool thank you that\u0027s enough for now",
+            "done",
+            "end conversation",
+            "enough",
+            "enough stop",
+            "exit skill",
+            "get out",
+            "go to sleep",
+            "good bye",
+            "good bye alexa",
+            "goodbye alexa",
+            "goodnight",
+            "no thank you goodbye",
+            "off",
+            "off okay",
+            "oh goodbye",
+            "oh stop",
+            "oh stop already",
+            "ok stop",
+            "ok that is enough",
+            "okay alexa stop",
+            "okay bye",
+            "okay stop",
+            "okay thank you",
+            "okay that is enough",
+            "okay that\u0027s enough",
+            "okay that\u0027s it",
+            "quiet",
+            "quit it",
+            "sh quiet",
+            "stop goodbye",
+            "stop listening",
+            "stop skill",
+            "stop stop",
+            "stop stop stop",
+            "thank you alexa off",
+            "thank you alexa stop",
+            "thanks alexa off",
+            "thanks bye",
+            "thanks off",
+            "that is all",
+            "that is all for now",
+            "that is enough",
+            "that will be all",
+            "that\u0027ll be all",
+            "that\u0027s all for now",
+            "that\u0027s enough alexa",
+            "that\u0027s enough alexa thanks",
+            "that\u0027s it alexa",
+            "that\u0027s it alexa stop",
+            "uh be quite",
+            "we are finished",
+            "we\u0027re finished",
+            "yes stop"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PauseIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ResumeIntent",
+          "samples": []
+        },
+        {
+          "name": "CatchAllIntent",
+          "slots": [],
+          "samples": [
+            "catch all utterances"
+          ]
+        }
+      ],
+      "types": [],
+      "modelConfiguration": {
+        "fallbackIntentSensitivity": {
+          "level": "LOW"
+        }
+      }
+    }
+  },
+  "version": "2"
+}

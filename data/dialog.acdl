@@ -1,0 +1,8 @@
+dialog {
+  sample {
+    getWeatherEvent = receiveInvocation(com.weatherbot.samples.GetWeatherSet)
+    weatherResult = com.weatherbot.apis.GetWeather(getWeatherEvent.slots.cityName.value)
+    notifySuccess(ResponseRef { prompt = "inform_weather"
+    }, weatherResult)
+  }
+}

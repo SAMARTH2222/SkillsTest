@@ -1,0 +1,26 @@
+{
+  "version": "0.1",
+  "arguments": {},
+  "templates": {
+    "prompt": {
+      "name": "request_energy_prompt",
+      "type": "APL-A"
+    },
+    "display": {
+      "name": "request-energy-energy-page",
+      "type": "APL"
+    }
+  },
+  "situations": [
+    {
+      "when": "",
+      "dialogAct": {
+        "type": "Request",
+        "api": "GetRecommendation",
+        "arguments": [
+          "energy"
+        ]
+      }
+    }
+  ]
+}
