@@ -1,12 +1,12 @@
 {
   "_args": [
     [
-      "skilla@1.0.3",
+      "skilla@1.0.4",
       "/Users/dsamarth/alexa-skills-kit-nodejs/SkillB"
     ]
   ],
-  "_from": "skilla@1.0.3",
-  "_id": "skilla@1.0.3",
+  "_from": "skilla@1.0.4",
+  "_id": "skilla@1.0.4",
   "_inBundle": false,
   "_integrity": "sha512-kDwdWe6Mc5VdfsYHghlnVc0zhfKWpXytqXPV6AjT8jMTbRHZ6lK6BnjVidwgE6pxc7J6L32GgbjhUGNrjizjgw==",
   "_location": "/skilla",
@@ -14,19 +14,19 @@
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "skilla@1.0.3",
+    "raw": "skilla@1.0.4",
     "name": "skilla",
     "escapedName": "skilla",
-    "rawSpec": "1.0.3",
+    "rawSpec": "1.0.4",
     "saveSpec": null,
-    "fetchSpec": "1.0.3"
+    "fetchSpec": "1.0.4"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/skilla/-/skilla-1.0.3.tgz",
+  "_resolved": "https://registry.npmjs.org/skilla/-/skilla-1.0.4.tgz",
   "_shasum": "4532d43f3d0c3c51050cef39759d2ec9bd4dc4f2",
-  "_spec": "1.0.3",
+  "_spec": "1.0.4",
   "_where": "/Users/dsamarth/alexa-skills-kit-nodejs/SkillB",
   "author": {
     "name": "Samarth Kanakkumar Dave"
@@ -51,7 +51,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "devDependencies": {
     "typescript": "^3.9.7"
   }
