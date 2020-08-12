@@ -19,13 +19,13 @@ class SkillABuilder {
         const getWeatherForCityDateEvent = new userEvents_1.GetWeatherForCityDateEvent();
         const yesEvent = new userEvents_1.YesEvent();
         // Create Actions.
-        const requestResponseAction = new responses_1.RequestResponseAction();
+        const requestResponseAction1 = new responses_1.RequestResponseAction();
         const confirmResponseAction = new responses_1.ConfirmResponseAction();
         const notifyResponseAction = new responses_1.NotifyResponseAction();
         const getWeatherAPIAction = new apis_1.GetWeatherAPIAction();
         const getWeatherDialog = new dialogs_1.GetWeatherDialog();
         const actionMap = new Map();
-        actionMap.set(requestResponseAction.name, requestResponseAction);
+        actionMap.set(requestResponseAction1.name, requestResponseAction1);
         actionMap.set(confirmResponseAction.name, confirmResponseAction);
         actionMap.set(notifyResponseAction.name, notifyResponseAction);
         actionMap.set(getWeatherAPIAction.name, getWeatherAPIAction);
@@ -34,7 +34,7 @@ class SkillABuilder {
         // Create Dialog.
         // Turn 1
         const x = getWeatherDialog.receive(whatIsTheWeatherEvent, "x", artifacts);
-        getWeatherDialog.respond(requestResponseAction, undefined, undefined);
+        getWeatherDialog.respond(requestResponseAction1, undefined, undefined);
         // Turn 2
         const y = getWeatherDialog.receive(getWeatherForCityDateEvent, "y", artifacts);
         getWeatherDialog.respond(confirmResponseAction, new Map([
@@ -44,7 +44,7 @@ class SkillABuilder {
         // Turn 3
         const z = getWeatherDialog.receive(yesEvent, "z", artifacts);
         const weatherResult0 = getWeatherDialog.executeApi(getWeatherAPIAction, new Map([
-            [apis_1.GetWeatherAPIAction.argName_cityName, y.getValue(responses_1.NotifyResponseAction.actionName)],
+            [apis_1.GetWeatherAPIAction.argName_cityName, y.getValue(userEvents_1.GetWeatherForCityDateEvent.argName_cityName)],
             [apis_1.GetWeatherAPIAction.argName_date, y.getValue(userEvents_1.GetWeatherForCityDateEvent.argName_date)]
         ]), "weatherResult0", undefined, artifacts);
         getWeatherDialog.respond(notifyResponseAction, new Map([

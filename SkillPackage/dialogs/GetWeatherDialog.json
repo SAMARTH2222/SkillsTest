@@ -46,7 +46,7 @@
         {
           "actionName": "GetWeatherAPIAction",
           "runtimeArgumentValues": {
-            "NotifyResponseAction": {
+            "cityName": {
               "label": "y.slots.cityName",
               "typeName": "cityName"
             },
