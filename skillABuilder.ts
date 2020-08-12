@@ -25,7 +25,7 @@ export class SkillABuilder {
         const yesEvent = new YesEvent();
 
         // Create Actions.
-        const requestResponseAction = new RequestResponseAction();
+        const requestResponseAction1 = new RequestResponseAction();
         const confirmResponseAction = new ConfirmResponseAction();
         const notifyResponseAction = new NotifyResponseAction();
         const getWeatherAPIAction = new GetWeatherAPIAction();
@@ -33,7 +33,7 @@ export class SkillABuilder {
         const getWeatherDialog = new GetWeatherDialog();
 
         const actionMap = new Map<ArtifactName, Action>();
-        actionMap.set(requestResponseAction.name, requestResponseAction);
+        actionMap.set(requestResponseAction1.name, requestResponseAction1);
         actionMap.set(confirmResponseAction.name, confirmResponseAction);
         actionMap.set(notifyResponseAction.name, notifyResponseAction);
         actionMap.set(getWeatherAPIAction.name, getWeatherAPIAction);
@@ -49,7 +49,7 @@ export class SkillABuilder {
         
         // Turn 1
         const x = getWeatherDialog.receive(whatIsTheWeatherEvent, "x", artifacts);
-        getWeatherDialog.respond(requestResponseAction, undefined!, undefined!);
+        getWeatherDialog.respond(requestResponseAction1, undefined!, undefined!);
 
         // Turn 2
         const y = getWeatherDialog.receive(getWeatherForCityDateEvent, "y", artifacts);

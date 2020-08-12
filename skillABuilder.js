@@ -44,7 +44,7 @@ class SkillABuilder {
         // Turn 3
         const z = getWeatherDialog.receive(yesEvent, "z", artifacts);
         const weatherResult0 = getWeatherDialog.executeApi(getWeatherAPIAction, new Map([
-            [apis_1.GetWeatherAPIAction.argName_cityName, y.getValue(userEvents_1.GetWeatherForCityDateEvent.argName_cityName)],
+            [apis_1.GetWeatherAPIAction.argName_cityName, y.getValue(responses_1.NotifyResponseAction.actionName)],
             [apis_1.GetWeatherAPIAction.argName_date, y.getValue(userEvents_1.GetWeatherForCityDateEvent.argName_date)]
         ]), "weatherResult0", undefined, artifacts);
         getWeatherDialog.respond(notifyResponseAction, new Map([
