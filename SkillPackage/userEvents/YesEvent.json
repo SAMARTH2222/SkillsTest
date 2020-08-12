@@ -1,0 +1,10 @@
+{
+  "name": "YesEvent",
+  "fullyQualifiedName": "com.skillA.userEvents.YesEvent",
+  "samples": [
+    "yes",
+    "sure",
+    "alright"
+  ],
+  "types": null
+}

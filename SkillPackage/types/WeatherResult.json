@@ -1,0 +1,16 @@
+{
+  "name": "WeatherResult",
+  "fullyQualifiedName": "com.skillA.types.WeatherResult",
+  "extendsFrom": null,
+  "properties": {
+    "cityName": {
+      "name": "CityName"
+    },
+    "highTemperature": {
+      "name": "Temperature"
+    },
+    "lowTemperature": {
+      "name": "Temperature"
+    }
+  }
+}

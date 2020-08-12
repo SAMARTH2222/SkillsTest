@@ -1,0 +1,76 @@
+{
+  "name": "GetWeatherDialog",
+  "fullyQualifiedName": "com.skillA.dialogs.GetWeatherDialog",
+  "suggestedTurns": [
+    {
+      "userEvent": {
+        "label": "x",
+        "userEventName": "WhatIsTheWeatherEvent"
+      },
+      "actionSequence": [
+        {
+          "actionName": "RequestResponseAction",
+          "runtimeArgumentValues": null,
+          "condition": null
+        }
+      ]
+    },
+    {
+      "userEvent": {
+        "label": "y",
+        "userEventName": "GetWeatherForCityDateEvent"
+      },
+      "actionSequence": [
+        {
+          "actionName": "ConfirmResponseAction",
+          "runtimeArgumentValues": {
+            "cityName": {
+              "label": "y.slots.cityName",
+              "typeName": "cityName"
+            },
+            "date": {
+              "label": "y.slots.date",
+              "typeName": "date"
+            }
+          },
+          "condition": null
+        }
+      ]
+    },
+    {
+      "userEvent": {
+        "label": "z",
+        "userEventName": "YesEvent"
+      },
+      "actionSequence": [
+        {
+          "actionName": "GetWeatherAPIAction",
+          "runtimeArgumentValues": {
+            "cityName": {
+              "label": "y.slots.cityName",
+              "typeName": "cityName"
+            },
+            "date": {
+              "label": "y.slots.date",
+              "typeName": "date"
+            }
+          },
+          "returnsLabel": "weatherResult0",
+          "condition": null
+        },
+        {
+          "actionName": "NotifyResponseAction",
+          "runtimeArgumentValues": {
+            "weatherResult": {
+              "label": "weatherResult0.cityName",
+              "typeName": "cityName"
+            }
+          },
+          "condition": {
+            "value": "Fn::Equals : [weatherResult0.cityName, Seattle]"
+          }
+        }
+      ]
+    }
+  ]
+}

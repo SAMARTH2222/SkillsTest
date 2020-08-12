@@ -1,0 +1,41 @@
+{
+  "name": "ConfirmResponseAction",
+  "fullyQualifiedName": "com.skillA.responses.ConfirmResponseAction",
+  "args": {
+    "cityName": {
+      "name": "CityName"
+    },
+    "date": {
+      "name": "Date"
+    }
+  },
+  "type": "RESPONSE",
+  "templates": {
+    "prompt": {
+      "type": "confirm_GetWeather_apla",
+      "name": "APL-A"
+    }
+  },
+  "situations": [
+    {
+      "when": "",
+      "dialogAct": {
+        "type": "Confirm",
+        "api": "GetWeatherAPIAction",
+        "nextApi": null,
+        "result": null,
+        "args": [
+          {
+            "name": "CityName"
+          },
+          {
+            "name": "Date"
+          }
+        ],
+        "requestArgs": null,
+        "carryoverArguments": null,
+        "and": null
+      }
+    }
+  ]
+}

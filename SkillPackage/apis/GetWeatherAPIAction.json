@@ -1,0 +1,14 @@
+{
+  "name": "GetWeatherAPIAction",
+  "fullyQualifiedName": "com.skillA.apis.GetWeatherAPIAction",
+  "args": {
+    "cityName": {
+      "name": "CityName"
+    },
+    "date": {
+      "name": "Date"
+    }
+  },
+  "type": "API",
+  "returns": "WeatherResult"
+}

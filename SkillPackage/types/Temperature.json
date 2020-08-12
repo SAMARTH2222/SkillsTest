@@ -1,0 +1,6 @@
+{
+  "name": "Temperature",
+  "fullyQualifiedName": "com.skillA.types.Temperature",
+  "extendsFrom": "AMAZON.NUMBER",
+  "properties": null
+}

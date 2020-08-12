@@ -1,0 +1,11 @@
+{
+  "name": "WhatIsTheWeatherEvent",
+  "fullyQualifiedName": "com.skillA.userEvents.GetWeatherForCityDateEvent",
+  "samples": [
+    "what is the weather",
+    "what's the weather",
+    "how is the weather",
+    "tell me the weather"
+  ],
+  "types": null
+}

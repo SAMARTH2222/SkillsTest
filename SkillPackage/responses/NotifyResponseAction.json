@@ -1,0 +1,35 @@
+{
+  "name": "NotifyResponseAction",
+  "fullyQualifiedName": "com.skillA.responses.NotifyResponseAction",
+  "args": {
+    "weatherResult": {
+      "name": "WeatherResult"
+    }
+  },
+  "type": "RESPONSE",
+  "templates": {
+    "prompt": {
+      "type": "notify_api_response_GetWeather_apla",
+      "name": "APL-A"
+    }
+  },
+  "situations": [
+    {
+      "when": "",
+      "dialogAct": {
+        "type": "Notify",
+        "api": "GetWeatherAPIAction",
+        "nextApi": null,
+        "result": "SUCCESS",
+        "args": [
+          {
+            "name": "WeatherResult"
+          }
+        ],
+        "requestArgs": null,
+        "carryoverArguments": null,
+        "and": null
+      }
+    }
+  ]
+}

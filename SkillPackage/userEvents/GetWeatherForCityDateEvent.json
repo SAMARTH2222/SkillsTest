@@ -1,0 +1,16 @@
+{
+  "name": "GetWeatherForCityDateEvent",
+  "fullyQualifiedName": "com.skillA.userEvents.GetWeatherForCityDateEvent",
+  "samples": [
+    "I want to get the weather report for {cityName} {date}",
+    "How is the weather in {cityName} {date}"
+  ],
+  "types": {
+    "cityName": {
+      "name": "CityName"
+    },
+    "date": {
+      "name": "Date"
+    }
+  }
+}

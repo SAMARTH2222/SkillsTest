@@ -1,0 +1,41 @@
+{
+  "name": "RequestResponseAction",
+  "fullyQualifiedName": "com.skillA.responses.RequestResponseAction",
+  "args": {
+    "cityName": {
+      "name": "CityName"
+    },
+    "date": {
+      "name": "Date"
+    }
+  },
+  "type": "RESPONSE",
+  "templates": {
+    "prompt": {
+      "type": "request_cityName_CityName_date_AMAZON.DATE_apla",
+      "name": "APL-A"
+    }
+  },
+  "situations": [
+    {
+      "when": "",
+      "dialogAct": {
+        "type": "Request",
+        "api": "GetWeatherAPIAction",
+        "nextApi": null,
+        "result": null,
+        "args": [
+          {
+            "name": "CityName"
+          },
+          {
+            "name": "Date"
+          }
+        ],
+        "requestArgs": null,
+        "carryoverArguments": null,
+        "and": null
+      }
+    }
+  ]
+}

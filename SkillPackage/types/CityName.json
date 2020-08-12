@@ -1,0 +1,6 @@
+{
+  "name": "CityName",
+  "fullyQualifiedName": "com.skillA.types.CityName",
+  "extendsFrom": "AMAZON.US_CITY",
+  "properties": null
+}
